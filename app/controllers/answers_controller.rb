@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  before_filter :set_user # Once authentication has added please remove this filter
+  before_filter :authenticate_user!
 
   def new
     session[:current_question] ||= 1 

@@ -1,4 +1,7 @@
 Fmatch::Application.routes.draw do
+  match '/users/sign_in' => redirect('/')
+  match '/users/sign_out' => redirect('/')
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get "home/index"
