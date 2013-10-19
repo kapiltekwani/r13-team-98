@@ -22,8 +22,10 @@ class User
   field :name
   field :uid
   field :image_url
-  field :friends, type: Array
   field :provider
+
+  has_many :given_answers, class_name: 'Answer', inverse_of: :answered_by
+  has_many :tagged_answers, class_name: 'Answer', inverse_of: :answered_for
 
   def self.generate_user_data(graph_api)
     user = graph_api.get_object("me")
@@ -49,5 +51,9 @@ class User
                         )
     end
     user
+  end
+
+  def get_friends
+    User.all
   end
 end

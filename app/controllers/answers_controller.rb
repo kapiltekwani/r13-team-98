@@ -1,15 +1,31 @@
 class AnswersController < ApplicationController
   before_filter :set_user # Once authentication has added please remove this filter
 
-  def create
-    question = Question.where(id: params[:question_id]).first
-    user = User.where(id: params[:user_id]).first
-    friend = User.where(id: params[:answer][:friend_id]).first
-
-    @question = Question.where(order: ((session[:order].find_index(params[:order].to_i)) + 1)).first
-    if question and user and friend
-      @answer = Answer.new(question_id: question.id, user_id: user.id, friend_id: friend.id)
-      @answer.save
-    end
+  def new
+    session[:current_question] ||= 1 
+    load_answer
   end
+
+  def create
+    params[:answer][:friend_ids].each do |friend_id|
+      a = Answer.new(params[:answer])
+      a.answered_for= friend_id
+      a.save
+    end
+    session[:current_question] += 1 
+    load_answer
+  end
+
+  private
+
+  def load_answer
+    load_question_and_friends
+    @answer = @question.answers.build({order: session[:current_question], answered_by: current_user })
+  end
+
+  def load_question_and_friends
+    @question = Question.where(order: session[:current_question]).first
+    @friends = current_user.get_friends
+  end
+
 end

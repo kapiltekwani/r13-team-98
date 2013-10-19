@@ -1,0 +1,15 @@
+= simple_form_for answer,  :html => {:class => 'form-horizontal' }, remote: true do |f|
+  .form-inline
+    .form-group.span8
+      = question.question_text
+      = f.input :question_id, as: :hidden
+      = f.input :answered_by_id, as: :hidden
+    .form-group.span3
+      = f.input :friend_ids, :collection => User.all.map{|u| [u.name, u.id]}, input_html: {multiple: true}, :label => false
+  = f.submit "Submit", class: 'btn btn-primary'
+
+:javascript
+  $(document).ready(function(){
+    $('#answer_friend_ids').select2({
+      width: 'resolve'});
+  });
