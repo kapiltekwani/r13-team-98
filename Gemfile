@@ -12,7 +12,11 @@ gem 'mina'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+<<<<<<< HEAD
+gem 'delayed_job_mongoid'
+=======
 gem 'simple_form'
+>>>>>>> 06681c212a6adfb3444e615d289699572959a7b0
 
 # Gems used only for assets and not required
 # in production environments by default.
