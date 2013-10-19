@@ -1,3 +1,11 @@
-%h1 Please Authorise to Use this Application
-
-= link_to 'Authorize', users_facebook_oauth_path
+#section1
+  .row
+    .col-md-2
+    .col-md-4
+      %h2 Between Friends
+  .row
+    .col-md-2
+    .col-md-4
+      = link_to users_facebook_oauth_path do 
+        = image_tag 'facebook-connect.png'
+#section2
