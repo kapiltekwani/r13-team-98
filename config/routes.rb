@@ -2,7 +2,7 @@ Fmatch::Application.routes.draw do
   get "home/index"
 
   get "users/facebook_oauth"
-  get "users/initialize_users_data"
+  get "users/initialize_data"
 
   
 
