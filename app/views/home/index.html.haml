@@ -1,11 +1,51 @@
-#section1
-  .row
-    .col-md-2
-    .col-md-4
-      %h2 Between Friends
-  .row
-    .col-md-2
-    .col-md-4
-      = link_to users_facebook_oauth_path do 
-        = image_tag 'facebook-connect.png'
-#section2
+!!!
+%html
+  %head
+    %meta{charset: "utf-8"}/
+    %title Create a Parralax Website using Stellar.js
+  %body
+    %ul.navigation
+      - (1..4).each do |i|
+        %li{"data-slide" => i}= "Slide #{i}"
+    /** Image appears on each slide
+    /**%img.envatologo{src: "/assets/envatologo.png"}/
+    #slide1.slide{"data-slide" => "1", "data-stellar-background-ratio" => "0"}
+      .row
+        .col-md-2
+        .col-md-4
+          %h1 Between Friends
+      .row
+        .col-md-2
+        .col-md-4
+          = link_to users_facebook_oauth_path do 
+            = image_tag 'facebook-connect.png'
+      %a.button{"data-slide" => "2", title: ""}
+    / End Slide 1
+    #slide2.slide{"data-slide" => "2", "data-stellar-background-ratio" => "0.5"}
+      .wrapper
+        %img{alt: "", "data-stellar-ratio" => "3", "data-stellar-vertical-offset" => "-55", src: "/assets/slide2/blur-ball.png"}/
+        %img{alt: "", "data-stellar-ratio" => "1", "data-stellar-vertical-offset" => "-102", src: "/assets/slide2/blur-ball-big.png"}/
+        %img{alt: "", "data-stellar-ratio" => "1.5", "data-stellar-vertical-offset" => "-53", src: "/assets/slide2/focus-ball.png"}/
+        %img{alt: "", "data-stellar-ratio" => "2.7", "data-stellar-vertical-offset" => "-25", src: "/assets/slide2/small-ball.png"}/
+        %img{alt: "", "data-stellar-ratio" => "3", "data-stellar-vertical-offset" => "-55", src: "/assets/slide2/blur-ball.png"}/
+        %img{alt: "", "data-stellar-ratio" => "1", "data-stellar-vertical-offset" => "-102", src: "/assets/slide2/blur-ball-big.png"}/
+        %img{alt: "", "data-stellar-ratio" => "1.5", "data-stellar-vertical-offset" => "-53", src: "/assets/slide2/focus-ball.png"}/
+        %img{alt: "", "data-stellar-ratio" => "2.7", "data-stellar-vertical-offset" => "-25", src: "/assets/slide2/small-ball.png"}/
+      %span.slideno Slide 2
+      %a.button{"data-slide" => "3", title: ""}
+    / End Slide 2
+    #slide3.slide{"data-slide" => "3", "data-stellar-background-ratio" => "0.5"}
+      .wrapper
+        %img{alt: "", "data-stellar-ratio" => "1.4", "data-stellar-vertical-offset" => "-102", src: "/assets/slide3/freelance.png"}/
+        %img{alt: "", "data-stellar-ratio" => "1.5", "data-stellar-vertical-offset" => "-53", src: "/assets/slide3/psdtuts.png"}/
+        %img{alt: "", "data-stellar-ratio" => "2.7", "data-stellar-vertical-offset" => "-200", src: "/assets/slide3/rockable.png"}/
+        %img{alt: "", "data-stellar-ratio" => "3", "data-stellar-vertical-offset" => "-200", src: "/assets/slide3/themeforest.png"}/
+        %img{alt: "", "data-stellar-ratio" => "1", "data-stellar-vertical-offset" => "-200", src: "/assets/slide3/tutshub.png"}/
+        %img{alt: "", "data-stellar-ratio" => "1.5", "data-stellar-vertical-offset" => "-200", src: "/assets/slide3/psdtuts.png"}/
+      %span.slideno Slide 3
+      %a.button{"data-slide" => "4", title: ""}
+    / End Slide 3
+    #slide4.slide{"data-slide" => "4", "data-stellar-background-ratio" => "0"}
+      %span.slideno Slide 4
+      %span.parallaxbg Use the parallax effects on background /assets too!
+    / End Slide 4
