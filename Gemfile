@@ -30,7 +30,8 @@ group ':test, development' do
   gem 'shoulda-matchers'
   gem 'factory_girl_rails' 
   gem 'database_cleaner'
-  gem 'therubyracer'
+  gem 'libv8'
+  gem 'therubyracer', '0.12.0'
 end
 gem 'mina' 
 
