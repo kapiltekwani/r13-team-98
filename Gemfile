@@ -8,7 +8,11 @@ gem 'koala'
 gem 'haml'
 gem 'haml-rails'
 gem 'mongoid', '~> 3.1.5'
-gem 'mina' 
+gem 'twitter-bootstrap-rails'
+gem 'mina'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -32,7 +36,6 @@ group ':test, development' do
   gem 'libv8'
   gem 'therubyracer', '0.12.0'
 end
-gem 'mina' 
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
