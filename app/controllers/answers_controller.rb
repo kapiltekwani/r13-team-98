@@ -6,7 +6,9 @@ class AnswersController < ApplicationController
     user = User.where(id: params[:user_id]).first
     friend = User.where(id: params[:answer][:friend_id]).first
 
-    @question = Question.where(order: ((session[:order].find_index(params[:order].to_i)) + 1)).first
+    @order = session[:order].find_index(params[:order].to_i) + 1
+    @question = Question.where(order: @order).first
+
     if question and user and friend
       @answer = Answer.new(question_id: question.id, user_id: user.id, friend_id: friend.id)
       @answer.save
