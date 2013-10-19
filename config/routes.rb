@@ -5,8 +5,8 @@ Fmatch::Application.routes.draw do
 
   get "users/facebook_oauth"
   get "users/initialize_data"
-  match "/question" => 'questions#show'
   resources :answers, only: [:create]
+  resources :questions, only: [:index]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
