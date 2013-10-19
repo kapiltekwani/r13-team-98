@@ -7,9 +7,9 @@ class User
   field :friends, type: Array
 
   def self.generate_user_data(graph_api)
-      user = graph_api.get_object("me")
-      User.create(uid: user["id"], name: user["name"], profile_pic: graph_api.get_picture("me"))
-      User.create_friends(graph_api)
+    user = graph_api.get_object("me")
+    User.create(uid: user["id"], name: user["name"], profile_pic: graph_api.get_picture("me"))
+    User.create_friends(graph_api)
   end
 
   def self.create_friends(graph_api)
