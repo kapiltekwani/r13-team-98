@@ -8,7 +8,6 @@ gem 'koala'
 gem 'haml'
 gem 'haml-rails'
 gem 'mongoid', '~> 3.1.5'
-gem 'twitter-bootstrap-rails'
 gem 'mina' 
 
 # Gems used only for assets and not required
