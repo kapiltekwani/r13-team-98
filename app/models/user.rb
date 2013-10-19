@@ -22,21 +22,20 @@ class User
   field :name
   field :uid
   field :image_url
-  field :friends, type: Array
+  field :friend_ids, type: Array
   field :provider
 
   def self.generate_user_data(graph_api)
     user = graph_api.get_object("me")
     current_user = User.where(:uid => user["id"]).first
-    unless current_user.nil?
-      current_user.set(:image_url, graph_api.get_picture("me"))
-      current_user.create_friends(graph_api)
-    end
+    current_user.set(:image_url, graph_api.get_picture("me")) if current_user.image_url.nil?
+    current_user.create_friends(current_user, graph_api) if current_user.friend_ids.nil?
   end
 
-  def create_friends(graph_api)
+  def create_friends(current_user, graph_api)
     friends = graph_api.get_connections("me", "friends")
     friends.each {|f| User.where(uid: f["id"]).first_or_create(uid: f["id"], name: f["name"]) }
+    current_user.set(:friend_ids, friends.collect  {|d| d['id']})
   end
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)

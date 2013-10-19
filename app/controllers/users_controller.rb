@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def facebook_oauth
     session[:oauth] = Koala::Facebook::OAuth.new(APP_ID, APP_SECRET, users_initialize_data_url)
-    auth_url =  session[:oauth].url_for_oauth_code(:permissions=>"read_stream publish_stream")
+    auth_url =  session[:oauth].url_for_oauth_code
     redirect_to auth_url
   end
 
