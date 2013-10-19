@@ -13,6 +13,7 @@ gem 'mina'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'delayed_job_mongoid'
 
 # Gems used only for assets and not required
 # in production environments by default.

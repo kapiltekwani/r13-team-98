@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     end
 
     begin
-      User.generate_user_data(api)
+      User.delay.generate_user_data(api)
     rescue Exception => ex
       p ex.message
       #if user is not logged in and an exception is caught, redirect to the page where logging in is requested
