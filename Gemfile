@@ -30,9 +30,10 @@ group ':test, development' do
   gem 'shoulda-matchers'
   gem 'factory_girl_rails' 
   gem 'database_cleaner'
-  gem 'mina' 
   gem 'therubyracer'
 end
+gem 'mina' 
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
