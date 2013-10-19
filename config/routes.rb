@@ -7,6 +7,8 @@ Fmatch::Application.routes.draw do
 
   get "users/facebook_oauth"
   get "users/initialize_data"
+
+  match '/answers/skip', to: 'answers#skip'
   resources :answers
   resources :questions, only: [:index]
 
