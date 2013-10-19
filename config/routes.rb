@@ -1,12 +1,14 @@
 Fmatch::Application.routes.draw do
+  match '/users/sign_in' => redirect('/')
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get "home/index"
 
   get "users/facebook_oauth"
   get "users/initialize_data"
-  match "/question" => 'questions#show'
-  resources :answers, only: [:create]
+  resources :answers
+  resources :questions, only: [:index]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -19,5 +19,7 @@ class UsersController < ApplicationController
       #if user is not logged in and an exception is caught, redirect to the page where logging in is requested
       redirect_to users_facebook_oauth_path and return
     end
+
+    redirect_to new_answer_path and return
   end
 end
