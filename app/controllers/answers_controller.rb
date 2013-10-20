@@ -55,6 +55,7 @@ class AnswersController < ApplicationController
     h = answers_about_me.inject({}) {|h,a| h[a.question.question_text] = 0;h}
     result = answers_about_me.inject(h) {|h,a| h[a.question.question_text] +=1;h}
     @pie_chart = result.values
-    @pie_chart_label = result.keys
+    @pie_chart_label = []
+    result.each{|k,v| @pie_chart_label << "#{k} (#{v} Friend)"}
   end
 end
