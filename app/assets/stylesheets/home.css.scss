@@ -1,16 +1,133 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#section1{
-    margin-top: 80px;
-    height: 400px;
-    background-position: 50% -20px;
-    background: url(bg.jpg);
+#message {
+  color: white;
+  font-size: 23px;
+  text-shadow: 1px 3px 5px rgba(0, 1, 2, 0.4);
+  font-weight: 400;
 }
 
-#section2{
-    height: 400px;
-    background: #F3374E;
-    padding-bottom: 40px;
-    padding-top: 20px;
+#message3{
+  position: absolute;
+}
+
+#instruction {
+  background-color: #EB6B49;
+  height: 300px;
+  width: 1230px;
+  margin-left: -45px;
+  top: 160px;
+  position: relative;
+}
+
+#generate_data{
+  background-color: #EB6B49;
+  height: 300px;
+  width: 1230px;
+  margin-left: -45px;
+  margin-bottom: 250px;
+  top: 160px;
+  position: relative;
+}
+
+#slide1 .container {
+    margin: 168px auto;
+    margin-bottom: 0;
+    position: relative;
+    width: 1066px;
+}
+
+.title h3 {
+    text-align: center;
+    color: white;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 40px auto 40px auto;
+    width: 960px;
+    text-shadow: 0 1px 0 white;
+    font-size: 40px;
+    font-weight: 400;
+    font-weight: 400;
+    font-weight: 400;
+    padding-top: 40px;
+}
+
+
+.title h3:before {
+    content: '';
+    width: 152px;
+    height: 2px;
+    top: 21%;
+    right: 125px;
+    position: absolute;
+    background: white;
+}
+
+
+.title h3:after {
+    content: '';
+    width: 152px;
+    height: 2px;
+    top: 21%;
+    left: 125px;
+    position: absolute;
+    margin: 0px 0 0;
+    background: white;
+}
+
+#slide1 h1 {
+    color: black;
+    font-family: 'StandardCT-ExtraBold', Helvetica, Arial, sans-serif;
+    font-size: 95px;
+    line-height: 0.78;
+    margin-left: 20px;
+    padding: 10px;
+}
+
+#slide1 .pink {
+    color: #ff007d;
+    display: block;
+    font-family: 'StandardCT-ExtraBold', Helvetica, Arial, sans-serif;
+    font-size: 109px;
+    line-height: 0.78;
+    font-weight: bold;
+
+}
+
+#slide1 .cyan {
+    background: url(/dms/wac/images/landing/time-wasters/Clock-Illustration1.png) no-repeat scroll right 40px;
+    color: #00c4ff;
+    display: inline-block;
+    font-family: 'StandardCT-ExtraBold', Helvetica, Arial, sans-serif;
+    font-size: 159px;
+    padding-right: 144px;
+}
+
+#slide1 .yellow {
+    color: #ffc700;
+    display: inline-block;
+    font-family: 'StandardCT-ExtraBold', Helvetica, Arial, sans-serif;
+    font-size: 159px;
+}
+
+.black {
+    background: url(/dms/wac/images/landing/time-wasters/Underline-Illustration.png) no-repeat scroll 80px bottom;
+    position: relative;
+    padding-bottom: 18px;
+    top: -46px;
+}
+
+.black1 {
+    display: block;
+    float: left;
+    padding-left: 445px;
+    margin-top: 44px;
+    margin-right: 20px;
+}
+
+.slide1Text {
+    font-size: 31px;
+    line-height: 38px;
+    margin-top: 65px;
+    margin-bottom: 100px;
 }
