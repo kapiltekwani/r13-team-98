@@ -1,4 +1,4 @@
-.well
+.well#answer-form
   - flash[:info] = "We are still collecting some data from Facebook, please wait few seconds & refresh the page to play" if @friends.empty? 
   = render 'messages'
   = simple_form_for answer,  :html => {:class => 'form answer-form form-inline' }, remote: true do |f|
