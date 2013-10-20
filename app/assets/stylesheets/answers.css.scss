@@ -11,8 +11,46 @@
   float: right !important;
 }*/
 
+#logo-title{
+    font-family: league-gothic, 'Helvetica-Neue', Helvetica, sans-serif !important;
+    letter-spacing: 3px;
+    font-weight: normal;
+    color: #407E84;
+    font-size: 54px;
+    margin-left: 45px;
+    margin-top: 30px !important
+}
+
+.question-text{
+    color: #F05A29;
+    letter-spacing: 1px;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: left;
+    margin-bottom: 2px
+}
+
+.control-label{
+    color: #F05A29;
+    letter-spacing: 1px;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: left;
+    margin-bottom: 2px;
+    padding-top:5px;
+}
+
 .main-container {
   background-color: #9BCFC2; 
+  letter-spacing: 1.5px;
+  word-spacing:3px;
+  color: #F05A29;
+  letter-spacing: 1px;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: left;
+  margin-bottom: 2px;
+  padding-top:5px;
 }
 
 .container {
