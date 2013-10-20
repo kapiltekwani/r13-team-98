@@ -18,5 +18,5 @@ end
  {name: 'Pratik', uid: '445566', friend: ['12345', '112233', '778899', '008899']},
  {name: 'Pramod', uid: '778899', friend: ['12345', '445566', '112233', '008899']},
  {name: 'Kapil', uid: '008899', friend: ['12345', '445566', '112233', '778899']}].each do |user|
-  User.create!(name: user[:name], uid: user[:uid], friends: user[:friend])
+  User.create!(name: user[:name], uid: user[:uid], friend_ids: user[:friend])
  end

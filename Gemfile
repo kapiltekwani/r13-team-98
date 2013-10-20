@@ -12,6 +12,7 @@ gem 'mina'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'daemons'
 gem 'delayed_job_mongoid'
 gem 'simple_form'
 
@@ -29,9 +30,8 @@ end
 
 gem 'jquery-rails'
 group ':test, development' do 
-  gem 'minitest-rails', '~> 0.9.2'
+  gem 'minitest-rails'
   gem 'faker'
-  gem 'shoulda-matchers'
   gem 'factory_girl_rails' 
   gem 'database_cleaner'
   gem 'libv8'
