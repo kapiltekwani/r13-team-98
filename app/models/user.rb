@@ -43,12 +43,11 @@ class User
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:uid => auth.uid).first
+    user_hash = { name:auth.extra.raw_info.name, provider:auth.provider, uid:auth.uid, email:auth.info.email }
     unless user
-      user = User.create(name:auth.extra.raw_info.name,
-                         provider:auth.provider,
-                         uid:auth.uid,
-                         email:auth.info.email
-                        )
+      user = User.create(user_hash)
+    else
+      user.update_attributes(user_hash)
     end
     user
   end
@@ -59,5 +58,11 @@ class User
 
   def answers_about_me 
     Answer.where(:answered_for_id => self.id)
+  end
+
+  def send_notifications(question)
+    user_ids = question.find_matching_user_ids(self.id)
+    emails = User.where(:id.in => user_ids.uniq).collect(&:email)
+    emails.reject(&:blank?).each { |e| UserMailer.notification(e).deliver }
   end
 end

@@ -10,16 +10,17 @@ class AnswersController < ApplicationController
   def create
     params[:answer][:friend_ids].reject(&:blank?).each do |friend_id|
       a = Answer.new(params[:answer])
-      a.answered_for_id = User.where(:uid => friend_id).first.id
+      a.answered_for_id = User.where(:uid => friend_id).first.id 
       a.save
     end
+    question = Question.find(params[:answer][:question_id])
+    current_user.delay.send_notifications(question)
     session[:current_question]  = questions_count(session[:current_question])
     load_answer
   end
 
   def skip
     session[:current_question]  = questions_count(session[:current_question])
-    
     redirect_to :action => :new
   end
 
@@ -38,5 +39,4 @@ class AnswersController < ApplicationController
   def questions_count(no_of_questions)
     no_of_questions >= 15 ? 1 : (no_of_questions + 1)
   end
-
 end
