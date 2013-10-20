@@ -1,4 +1,5 @@
 .well
+  - flash[:info] = "We are still collecting some data from Facebook, please wait few seconds & refresh the page to play" if @friends.emtpy?
   = render 'messages'
   = simple_form_for answer,  :html => {:class => 'form answer-form form-inline' }, remote: true do |f|
     .form-inline
@@ -7,7 +8,8 @@
       .row
         = render "question", question: question, f: f
         %br
-          = f.input :friend_ids, :collection => @friends.map{|u| [u.name, u.uid]}, input_html: {multiple: true}, :label => "Please enter your friend's name " ,wrapper_html: {class: 'col-lg-9'}
+          - unless @friends.empty?
+            = f.input :friend_ids, :collection => @friends.map{|u| [u.name, u.uid]}, input_html: {multiple: true}, :label => "Please enter your friend's name " ,wrapper_html: {class: 'col-lg-9'}
         %br
           = f.submit "Submit", class: 'btn btn-primary submit-btn'
           = link_to "Skip", answers_skip_path, class: 'btn btn-warning', style: "margin-top:15px"
