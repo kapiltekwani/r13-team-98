@@ -1,4 +1,4 @@
-#answer{
+/*#answer{
   position: absolute;
   top: 25%;
   left: 25%;
@@ -9,14 +9,22 @@
 #nav-answer-page {
   margin-right: 200px;
   float: right !important;
+}*/
+
+.main-container {
+  background-color: #9BCFC2; 
+}
+
+.container {
+  padding: 50px; 
 }
     
-#result{
+/*#result{
   margin-top: 350px;
   margin-left: -120px;
   width: 1400px;
   background-color:#7CC3BF; 
-}
+}*/
 
 .select2-container-multi .select2-choices{
     min-height:66px !important;
