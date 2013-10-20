@@ -35,6 +35,11 @@ class AnswersController < ApplicationController
     redirect_to :action => :new
   end
 
+  def back 
+    ((session[:current_question] -= 1) > 0) ? session[:current_question] : 1
+    redirect_to :action => :new
+  end
+
   private
 
   def load_answer

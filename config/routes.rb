@@ -10,6 +10,8 @@ Fmatch::Application.routes.draw do
   get "users/initialize_data"
 
   match '/answers/skip', to: 'answers#skip'
+  match '/answers/back', to: 'answers#back'
+
   match '/terms', to: 'answers#terms'
   resources :answers
   resources :questions, only: [:index]
