@@ -63,8 +63,7 @@ class User
     Answer.where(:answered_for_id => self.id)
   end
 
-  def send_notifications(question)
-    user_ids = question.find_matching_user_ids(self.id)
+  def send_notifications(user_ids)
     emails = User.where(:id.in => user_ids.uniq).collect(&:email)
     emails.reject(&:blank?).each { |e| UserMailer.notification(e).deliver }
   end

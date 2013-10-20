@@ -1,4 +1,5 @@
 .well
+  = render 'messages'
   = simple_form_for answer,  :html => {:class => 'form answer-form form-inline' }, remote: true do |f|
     .form-inline
       = f.input :answered_by_id, as: :hidden

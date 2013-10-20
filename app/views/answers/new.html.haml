@@ -4,6 +4,12 @@
     .col-md-5
       = render 'shared/header'
   .row
+    .col-lg-3
+    .col-lg-7
+      #alert
+        //= render 'messages'
+    .col-lg-3
+  .row
     #answer
       = render 'form', answer: @answer, question: @question
     
