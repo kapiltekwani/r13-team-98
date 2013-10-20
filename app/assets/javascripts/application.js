@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require raphael-min
+//= require g.raphael-min
+//= require g.pie-min
 //= require select2
 //= require bootstrap.js  
 //= require home.js.coffee  
