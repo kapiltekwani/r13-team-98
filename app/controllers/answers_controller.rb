@@ -15,7 +15,15 @@ class AnswersController < ApplicationController
       a.save
     end
     question = Question.find(params[:answer][:question_id])
-    current_user.delay.send_notifications(question)
+    user_ids = question.find_matching_user_ids(current_user.id)
+
+    unless user_ids.empty?
+      users = User.where(:id.in => user_ids).collect(&:name).compact.join(', ')
+      flash[:notice] = "Your answer matches with #{users} ...!!!"
+    else
+      flash[:success] = "Your answer does not match with any of your friends yet..!!"
+    end
+    current_user.delay.send_notifications(user_ids)
     session[:current_question]  = questions_count(session[:current_question])
     load_answer
   end
