@@ -6,9 +6,9 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    .container
+    -#.container
       .row
         .col-md-7
         .col-md-5
           = render 'shared/header'
-      = yield
+    = yield

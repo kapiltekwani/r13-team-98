@@ -1,29 +1,3 @@
-- content_for :navigation do
-  %br
-  %ul.nav.nav-pills.navigation
-    %li{"data-slide" => 1}
-      %a{href: "#"} Home
-    %li{"data-slide" => 2}
-      %a{href: "#"} App 
-    %li{"data-slide" => 3}
-      %a{href: "#"} About
-    %li
-      %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-        %span
-          Pratik
-          .caret
-      %ul.dropdown-menu
-        %li
-          %a{href: "#"} Action
-        %li
-          %a{href: "#"} Another action
-        %li
-          %a{href: "#"} Something else here
-        %li.divider
-        %li
-          %a{href: "#"} Separated link
-
-
 - content_for :slide1 do
   #slide1.slide{"data-slide" => "1", "data-stellar-background-ratio" => "0"}
     #container
@@ -34,44 +8,36 @@
         %span.cyan You
         %span.black1 and
         %span.yellow me :-)
+      .clearfix
+      = link_to image_tag('facebook-connect.png'), user_omniauth_authorize_path(:facebook)
 
 - content_for :slide2 do
   #slide2.slide{"data-slide" => "2", "data-stellar-background-ratio" => "0.5"}
     #instruction
       .title
-        %h3
-          Answer some question
-      %h3
-        U may get lucky
-        Your friends will never know you're interested unless they are too! 
-        (Completely private & discreet until both friends are down to bang!) 
-    .wrapper
-      #message3{"data-stellar-ratio" => "3", "data-stellar-vertical-offset" => "-155"}
-        #message Answer some question
-      #message3{"data-stellar-ratio" => "1.9", "data-stellar-vertical-offset" => "-202"}
-        #message
-          U may get lucky
-          Your friends will never know you're interested unless they are too! 
-          (Completely private & discreet until both friends are down to bang!) 
-      %img{alt: "", "data-stellar-ratio" => "1.5", "data-stellar-vertical-offset" => "-53", src: "/assets/slide2/focus-ball.png"}/
-      %img{alt: "", "data-stellar-ratio" => "2.7", "data-stellar-vertical-offset" => "-25", src: "/assets/slide2/small-ball.png"}/
-      %img{alt: "", "data-stellar-ratio" => "3", "data-stellar-vertical-offset" => "-55", src: "/assets/slide2/blur-ball.png"}/
-      %img{alt: "", "data-stellar-ratio" => "1", "data-stellar-vertical-offset" => "-102", src: "/assets/slide2/blur-ball-big.png"}/
-      %img{alt: "", "data-stellar-ratio" => "1.5", "data-stellar-vertical-offset" => "-53", src: "/assets/slide2/focus-ball.png"}/
-      %img{alt: "", "data-stellar-ratio" => "2.7", "data-stellar-vertical-offset" => "-25", src: "/assets/slide2/small-ball.png"}/
-  
+        How To Play
+      .steps
+        Step 1: Get yourself registered
+        = image_tag 'facebook-connect.png'
+      .steps
+        Step 2: Answer questions about your friends
+      .steps
+        Step 3: Generate Results and get notified on email if your answers matches with your friend
+    .big-steps
+      Its That Simple!!
 
 - content_for :slide3 do
   #slide3.slide{"data-slide" => "3", "data-stellar-background-ratio" => "0.5"}
-    #generate_data
-      .title
-        %h3 Check what your friends think of you
+    #instruction
+      .title Privacy Policy
+      .steps
+        Your friends will never know about you're answer unless they also think the same! 
+      .steps
+        (Completely private & discreet until your answer match with your friends answers!)
 
 
-/** Image appears on each slide
-/**%img.envatologo{src: "/assets/envatologo.png"}/
+.envatologo
+  = render 'shared/header'
 = yield :slide1
-= link_to image_tag('facebook-connect.png'), user_omniauth_authorize_path(:facebook)
 = yield :slide2
-%br
 = yield :slide3
