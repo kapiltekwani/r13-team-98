@@ -12,12 +12,12 @@
 }*/
 
 #answer-form{
-    height:358px;
+  min-height:358px;
 }
 
 #matched-answer{
-    height: 358px;
-    overflow: auto;
+  min-height: 358px;
+  overflow: auto;
 }
 
 #pie-container{
