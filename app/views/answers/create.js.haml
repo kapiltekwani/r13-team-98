@@ -1,4 +1,6 @@
 $('#answer').html("#{escape_javascript( render 'form', answer: @answer, question: @question)}");
+- if @burst
+  $('#answer_friend_ids').imgExplosion()
 
 var format;
 

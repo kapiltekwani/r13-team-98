@@ -20,7 +20,7 @@ $(document).ready ->
         m
   
     $(".answer-form").submit ->
-      unless $("#answer_friend_ids").val()?
+      if $("#answer_friend_ids").val() == null
         alert "Please select a friend before you submit the form"
         false
 
