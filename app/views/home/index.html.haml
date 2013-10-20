@@ -23,8 +23,28 @@
         Step 2: Answer questions about your friends
       .steps
         Step 3: Generate Results and get notified on email if your answers matches with your friend
+      %br
+      %br
+        %center
+          %h6 (Note: We have provided #{link_to "Test Accounts", "#testAccounts", class: 'btn btn-warning', 'data-toggle' => 'modal'} to play the game, but it would be much more fun to play with your real accounts!!)
     .big-steps
       Its That Simple!!
+#testAccounts.modal.fade.no-overflow{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4.modal-title 
+          %b Guest Credentials 
+      .modal-body
+        %p
+          %b Username/Password: 
+          sivafacebook2@gmail.com/pune0071
+        %p
+          %b Username/Password: 
+          sivafacebook2@gmail.com/pune0071
+
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button", id: 'close'} Close
 
 - content_for :slide3 do
   #slide3.slide{"data-slide" => "3", "data-stellar-background-ratio" => "0.5"}
