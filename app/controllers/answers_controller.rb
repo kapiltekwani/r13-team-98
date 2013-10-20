@@ -19,6 +19,7 @@ class AnswersController < ApplicationController
 
     unless user_ids.empty?
       users = User.where(:id.in => user_ids).collect(&:name).compact.join(', ')
+      @burst = true
       flash[:notice] = "Your answer matched with #{users} ...!!!"
     else
       flash[:success] = "Your answer didn't match with any of your friends yet..!!"
