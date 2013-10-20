@@ -42,7 +42,7 @@ class User
   end
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    user = User.where(:uid => auth.uid).first
     unless user
       user = User.create(name:auth.extra.raw_info.name,
                          provider:auth.provider,
@@ -55,5 +55,9 @@ class User
 
   def get_friends
     User.where(:uid.in => self.friend_ids)
+  end
+
+  def answers_about_me 
+    Answer.where(:answered_for_id => self.id)
   end
 end
