@@ -22,7 +22,6 @@
 }
 
 .question-text{
-    font-family: hellenic-wide, 'Helvetica-Neue', Helvetica, sans-serif;
     color: #F05A29;
     letter-spacing: 1px;
     font-size: 24px;
@@ -32,10 +31,9 @@
 }
 
 .control-label{
-    font-family: hellenic-wide, 'Helvetica-Neue', Helvetica, sans-serif;
     color: #F05A29;
     letter-spacing: 1px;
-    font-size: 16px;
+    font-size: 14px;
     text-transform: uppercase;
     text-align: left;
     margin-bottom: 2px;
@@ -44,6 +42,15 @@
 
 .main-container {
   background-color: #9BCFC2; 
+  letter-spacing: 1.5px;
+  word-spacing:3px;
+  color: #F05A29;
+  letter-spacing: 1px;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: left;
+  margin-bottom: 2px;
+  padding-top:5px;
 }
 
 .container {

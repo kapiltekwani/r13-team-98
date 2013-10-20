@@ -16,8 +16,8 @@
         .well
           %legend Matched Answer
           - Question.limit(5).each do |q|
-            .text-primary
-              = q.question_text
+            = q.question_text
+            %br
             - 2.times do 
               = image_tag 'pratik.jpg', size: '40x40'
             %legend

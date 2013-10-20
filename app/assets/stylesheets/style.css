@@ -13,9 +13,10 @@
 
 }
 html,body{
- font-family: 'BebasRegular';
-	width:100%;
-	height:100%;
+  width:100%;
+  height:100%;
+  letter-spacing: 1.5px;
+  word-spacing:3px;
 }
 
 .navigation{
@@ -46,7 +47,7 @@ html,body{
   position:fixed;
   top:50%;
   right:0%;
-  width:522px;
+  width:562px;
   margin-top:-41px;
   margin-left:-223px;
   z-index:1;
