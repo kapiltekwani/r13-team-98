@@ -2,41 +2,14 @@
   .form-inline
     = f.input :question_id, as: :hidden
     = f.input :answered_by_id, as: :hidden
-    .span12.well
-      .form-group.span8
-        = question.question_text
-      .form-group.span3.pull-right
-        = f.input :friend_ids, :collection => @friends.map{|u| [u.name, u.uid]}, input_html: {multiple: true}, :label => false
-  = f.submit "Submit", class: 'btn btn-primary'
-  = link_to "Skip", answers_skip_path, class: 'btn btn-warning'
-- @list = User.all 
-:javascript
-  format = function(item) { return item.text }
-  $(document).ready(function(){
-    $('#answer_friend_ids').popover({
-      'data-trigger': 'click',
-      'data-html': true,
-      'data-placement': 'right',
-      'data-content': "hello how are you"
-    });
-    
-    $('#answer_friend_ids').select2({
-      width: 'resolve',
-      formatResult: format,
-      formatSelection: format,
-      escapeMarkup: function(m) { return m; }
-    });
-
-    $('.answer-form').submit(function(){
-      if ($('#answer_friend_ids').val() == null){
-        alert("Please select a friend before you submit the form")
-        return false;
-      }
-    })    
-
-    function format(state) {
-      if (!state.id) return state.text; // optgroup
-        return "<img class='flag' src='https://graph.facebook.com/" + state.id + "/picture'/>" + state.text;
-    }
-  });
-
+    .row
+      .col-lg-3
+        = image_tag 'babu-rao.jpg', size: '150x150' 
+      .col-lg-9
+        %h1
+          = question.question_text
+        %br
+          = f.input :friend_ids, :collection => @friends.map{|u| [u.name, u.uid]}, input_html: {multiple: true, width:'800px;'}, :label => 'Friend Name'
+        %br
+        = f.submit "Submit", class: 'btn btn-primary'
+        = link_to "Skip", answers_skip_path, class: 'btn btn-warning'

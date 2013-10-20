@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   def index
   end
 
-  def  generate_user_statistics
+  def generate_user_statistics
     answers_about_me = current_user.answers_about_me
     info = {}
     unless answers_about_me.empty?
