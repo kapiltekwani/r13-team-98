@@ -1,4 +1,4 @@
-= simple_form_for answer,  :html => {:class => 'form-horizontal answer-form' }, remote: true do |f|
+= simple_form_for answer,  :html => {:class => 'form answer-form form-inline' }, remote: true do |f|
   .form-inline
     = f.input :question_id, as: :hidden
     = f.input :answered_by_id, as: :hidden
