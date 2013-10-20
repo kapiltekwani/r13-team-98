@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
         //If the user scrolls up change the navigation link that has the same data-slide attribute as the slide to active and 
         //remove the active class from the previous navigation link 
         if (direction === 'down') {
-            dataslide = parseInt(dataslide)+ 1;
+            dataslide = parseInt(dataslide);
             dataslide = dataslide + '';
             $('.navigation li[data-slide="' + dataslide + '"]').addClass('active').prev().removeClass('active');
         }
