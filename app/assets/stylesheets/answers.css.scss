@@ -1,10 +1,16 @@
 #answer{
   position: absolute;
+  top: 25%;
   left: 25%;
   width: 700px;
   height: 200px;
 }
 
+#nav-answer-page {
+  margin-right: 200px;
+  float: right !important;
+}
+    
 #result{
   margin-top: 350px;
   margin-left: -120px;

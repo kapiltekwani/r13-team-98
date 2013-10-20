@@ -9,7 +9,7 @@
         %span.black1 and
         %span.yellow me :-)
       .clearfix
-      = link_to image_tag('facebook-connect.png'), user_omniauth_authorize_path(:facebook)
+      = link_to image_tag('facebook-connect.png'), user_omniauth_authorize_path(:facebook), id: :facebook_btn
 
 - content_for :slide2 do
   #slide2.slide{"data-slide" => "2", "data-stellar-background-ratio" => "0.5"}
@@ -28,12 +28,22 @@
 
 - content_for :slide3 do
   #slide3.slide{"data-slide" => "3", "data-stellar-background-ratio" => "0.5"}
-    #instruction
+    #privacy
       .title Privacy Policy
       .steps
         Your friends will never know about you're answer unless they also think the same! 
       .steps
         (Completely private & discreet until your answer match with your friends answers!)
+    #who-we-are
+      .title Who are we?
+      .steps
+        = link_to 'Pratik Shah', 'https://github.com/pratik14'
+      .steps
+        = link_to 'Siva Gollapali', 'http://sivagollapallidotnet.wordpress.com'
+      .steps
+        = link_to 'Kapil Tekwani', 'https://github.com/kapiltekwani'
+      .steps
+        = link_to 'Pramod Shinde', 'https://github.com/pramodshinde'
 
 
 .envatologo
