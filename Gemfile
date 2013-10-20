@@ -12,6 +12,7 @@ gem 'mina'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'daemons'
 gem 'delayed_job_mongoid'
 gem 'simple_form'
 

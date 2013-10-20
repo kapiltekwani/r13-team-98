@@ -65,6 +65,7 @@ task :deploy => :environment do
     invoke :'rails:assets_precompile'
 
     to :launch do
+      queue "cd #{deploy_to}/current && RAILS_ENV=production script/delayed_job start"
       queue "sudo /opt/nginx/sbin/nginx -s reload"
     end
   end
