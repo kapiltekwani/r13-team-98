@@ -54,6 +54,6 @@ class User
   end
 
   def get_friends
-    User.all
+    User.where(:uid.in => self.friend_ids)
   end
 end
