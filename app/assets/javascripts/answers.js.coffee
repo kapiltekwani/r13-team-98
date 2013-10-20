@@ -13,7 +13,7 @@ $(document).ready ->
       "data-content": "hello how are you"
   
     $("#answer_friend_ids").select2
-      width: "400px;"
+      width: "380px;"
       formatResult: format
       formatSelection: format
       escapeMarkup: (m) ->
