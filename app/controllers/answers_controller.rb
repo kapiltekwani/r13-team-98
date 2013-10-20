@@ -32,7 +32,7 @@ class AnswersController < ApplicationController
 
   def load_question_and_friends
     @question = Question.where(order: session[:current_question]).first
-    @friends = User.where(:uid.in => current_user.friend_ids)
+    @friends = current_user.get_friends 
   end
 
   def questions_count(no_of_questions)
