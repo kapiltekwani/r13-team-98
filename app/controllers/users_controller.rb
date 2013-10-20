@@ -21,6 +21,6 @@ class UsersController < ApplicationController
     end
 
     path = current_user.friend_ids.nil? ? terms_path : new_answer_path
-    redirect_to path and return
+    redirect_to path
   end
 end

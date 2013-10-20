@@ -38,7 +38,7 @@ class AnswersController < ApplicationController
   end
 
   def questions_count(no_of_questions)
-    no_of_questions >= 15 ? 1 : (no_of_questions + 1)
+    no_of_questions >= Question.count ? 1 : (no_of_questions + 1)
   end
 
   def generate_user_statistics
