@@ -6,6 +6,7 @@ class AnswersController < ApplicationController
     session[:current_question]  ||= questions_count(session[:current_question]) unless session[:current_question].nil? 
     load_answer
     generate_user_statistics
+    @matched_users = current_user.get_matched_data
   end
 
   def create
