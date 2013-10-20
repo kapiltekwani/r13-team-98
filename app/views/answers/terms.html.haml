@@ -1,0 +1,16 @@
+#myModal.modal.fade.no-overflow{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4.modal-title Terms & Conditions
+      .modal-body
+        %b Privacy
+        %br
+        %p Your privacy is very important to us. We designed in a manner that we won't share your personal information and your friends information with others. 
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button", id: 'close'} Close
+
+:coffeescript
+  $("#myModal").modal "show"
+  $("#close").click ->
+    window.location.href = "#{HOST}/answers/new"

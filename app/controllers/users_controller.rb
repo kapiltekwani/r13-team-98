@@ -20,6 +20,6 @@ class UsersController < ApplicationController
       redirect_to users_facebook_oauth_path and return
     end
 
-    redirect_to new_answer_path and return
+    redirect_to terms_path and return
   end
 end

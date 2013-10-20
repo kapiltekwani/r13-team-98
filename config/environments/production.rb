@@ -61,4 +61,5 @@ Fmatch::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
+  HOST = "http://the-thalaivaas.r13.railsrumble.com"
 end

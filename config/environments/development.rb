@@ -28,4 +28,6 @@ Fmatch::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  HOST = "http://localhost:3000"
 end
