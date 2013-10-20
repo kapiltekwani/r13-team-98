@@ -93,9 +93,9 @@ class User
           answers.each do |ans| 
             question = Question.find(d)
             if data[question.question_text] == nil
-              data[question.question_text] = [ans.answered_by_id]
+              data[question.question_text] = [ans.answered_by.uid]
             else
-              data[question.question_text] << ans.answered_by_id
+              data[question.question_text] << ans.answered_by.uid
             end
             data[question.question_text] = data[question.question_text].uniq
           end
