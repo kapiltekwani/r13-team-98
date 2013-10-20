@@ -21,8 +21,7 @@
           %a{href: "#"} Something else here
         %li.divider
         %li
-          %a{href: "#"} Separated link
-
+          = link_to 'Sign Out', destroy_user_session_path, method: :delete
 
 - content_for :slide1 do
   #slide1.slide{"data-slide" => "1", "data-stellar-background-ratio" => "0"}
