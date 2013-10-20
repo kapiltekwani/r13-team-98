@@ -13,13 +13,13 @@ class UsersController < ApplicationController
     end
 
     begin
-      User.delay.generate_user_data(api)
+      User.delay.generate_user_data(api) if current_user.sign_in_count.to_i <= 1
     rescue Exception => ex
       p ex.message
       #if user is not logged in and an exception is caught, redirect to the page where logging in is requested
       redirect_to users_facebook_oauth_path and return
     end
 
-    redirect_to new_answer_path and return
+    redirect_to terms_path and return
   end
 end

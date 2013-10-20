@@ -12,6 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
-//= require 'bootstrap'
 //= require select2
+//= require bootstrap.js  
+//= require home.js.coffee  
+//= require js.js  
+//= require jquery.stellar.js  
+//= require waypoints.min.js  
+//= require jquery.easing.1.3.js  

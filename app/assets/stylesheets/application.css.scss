@@ -12,3 +12,7 @@
  *= require select2
  *= require_tree .
  */
+
+.no-overflow {
+  overflow: hidden !important;
+}
