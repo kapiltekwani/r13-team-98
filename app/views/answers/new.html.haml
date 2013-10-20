@@ -1,8 +1,11 @@
 .main-container
   .container
     .row
-      .col-md-8
-      .col-md-4
+      .col-md-9
+        #logo-title 
+          = image_tag 'app-logo.png'
+          Between You and Me
+      .col-md-3
         = render 'shared/header'
   .container
     .row
@@ -21,10 +24,14 @@
   .container
     - if @pie_chart_label.empty?
       #result.well
-        %h3 No friends have answered about still!! 
+        %h3.control-label
+          = image_tag 'sad-face.jpg', size: '50x50'
+          No friends have answered about still!! 
     - else
       #result.well
-        %h3 What friends think of you 
+        %h3.control-label 
+          = image_tag 'happy-face.jpg', size: '50x50'
+          What friends think of you 
         #pie_chart 
         :javascript
           var pie_chart =  #{@pie_chart.to_json}
