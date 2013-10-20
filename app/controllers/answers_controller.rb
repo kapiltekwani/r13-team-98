@@ -19,9 +19,9 @@ class AnswersController < ApplicationController
 
     unless user_ids.empty?
       users = User.where(:id.in => user_ids).collect(&:name).compact.join(', ')
-      flash[:notice] = "Your answer matches with #{users} ...!!!"
+      flash[:notice] = "Your answer matched with #{users} ...!!!"
     else
-      flash[:success] = "Your answer does not match with any of your friends yet..!!"
+      flash[:success] = "Your answer didn't match with any of your friends yet..!!"
     end
     current_user.delay.send_notifications(user_ids)
     session[:current_question]  = questions_count(session[:current_question])
