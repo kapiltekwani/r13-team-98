@@ -13,66 +13,66 @@
 }
 
 #instruction {
-  background-color: #EB6B49;
-  height: 300px;
-  width: 1230px;
-  margin-left: -45px;
-  top: 160px;
-  position: relative;
+  padding: 100px 200px 100px 200px;
+  color: white;
 }
 
 #generate_data{
-  background-color: #EB6B49;
-  height: 300px;
-  width: 1230px;
-  margin-left: -45px;
-  margin-bottom: 250px;
-  top: 160px;
+}
+
+#slide1 #container {
   position: relative;
+  top: 5%;
+  left: 5%;
+  width: 1166px;
 }
 
-#slide1 .container {
-    margin: 168px auto;
-    margin-bottom: 0;
-    position: relative;
-    width: 1066px;
-}
-
-.title h3 {
+.title {
     text-align: center;
-    color: white;
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    margin: 40px auto 40px auto;
-    width: 960px;
+    margin: 40px auto 45px auto;
+    width: 560px;
     text-shadow: 0 1px 0 white;
     font-size: 40px;
     font-weight: 400;
-    font-weight: 400;
-    font-weight: 400;
-    padding-top: 40px;
 }
 
 
-.title h3:before {
+.title:before {
+    position: absolute;
     content: '';
     width: 152px;
     height: 2px;
-    top: 21%;
-    right: 125px;
-    position: absolute;
+    top: 25%;
+    right: 325px;
     background: white;
 }
 
 
-.title h3:after {
+.title:after {
     content: '';
     width: 152px;
     height: 2px;
-    top: 21%;
-    left: 125px;
+    top: 25%;
+    left: 325px;
     position: absolute;
     margin: 0px 0 0;
     background: white;
+}
+
+.steps{
+    font-size: 20px;
+    text-shadow: 1px 3px 5px rgba(0, 1, 2, 0.4);
+    font-weight: 400;
+    text-align: center;
+}
+
+.big-steps{
+    color: white;
+    font-size: 50px;
+    text-shadow: 1px 3px 5px rgba(0, 1, 2, 0.4);
+    font-weight: 400;
+    text-align: center;
 }
 
 #slide1 h1 {
