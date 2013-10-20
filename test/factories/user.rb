@@ -6,7 +6,7 @@ FactoryGirl.define do
     sequence(:uid) { rand(1000000000000) }  
 
     after(:create) do |u|
-      user = User.create!({name: 'Rishi', uid: '112233', friend_ids: u.uid})
+      user = User.create!({name: Faker::Name.first_name, uid: rand(100000000000), friend_ids: u.uid})
       u.friend_ids = [user.uid]
       u.save
     end
