@@ -25,7 +25,7 @@ class User
   field :friend_ids, type: Array
   field :provider
 
-  has_many :given_answers, class_name: 'Answer', inverse_of: :answered_by , foreign_key: :uid
+  has_many :given_answers, class_name: 'Answer', inverse_of: :answered_by 
   has_many :tagged_answers, class_name: 'Answer', inverse_of: :answered_for
 
   def self.generate_user_data(graph_api)

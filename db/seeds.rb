@@ -12,11 +12,3 @@ i = 1
    Question.create!(question_text: question, order: i)
    i += 1
 end
-
-[{name: 'Siva', uid: '12345', friend: ['008899', '112233', '445566', '778899']}, 
- {name: 'Rishi', uid: '112233', friend: ['12345', '445566', '778899', '008899']},
- {name: 'Pratik', uid: '445566', friend: ['12345', '112233', '778899', '008899']},
- {name: 'Pramod', uid: '778899', friend: ['12345', '445566', '112233', '008899']},
- {name: 'Kapil', uid: '008899', friend: ['12345', '445566', '112233', '778899']}].each do |user|
-  User.create!(name: user[:name], uid: user[:uid], friend_ids: user[:friend])
- end

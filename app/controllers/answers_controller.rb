@@ -8,9 +8,9 @@ class AnswersController < ApplicationController
   end
 
   def create
-    params[:answer][:friend_ids].each do |friend_id|
+    params[:answer][:friend_ids].reject(&:blank?).each do |friend_id|
       a = Answer.new(params[:answer])
-      a.answered_for = friend_id
+      a.answered_for_id = User.where(:uid => friend_id).first.id
       a.save
     end
     session[:current_question]  = questions_count(session[:current_question])
@@ -32,7 +32,7 @@ class AnswersController < ApplicationController
 
   def load_question_and_friends
     @question = Question.where(order: session[:current_question]).first
-    @friends = User.where(:uid.in => current_user.friend_ids)
+    @friends = current_user.get_friends 
   end
 
   def questions_count(no_of_questions)
