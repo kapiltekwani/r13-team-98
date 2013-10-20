@@ -1,64 +1,82 @@
 - content_for :navigation do
-  %ul.navigation
-    %li{"data-slide" => 2, class: 'btn btn-primary'} Step 1
-    %li{"data-slide" => 3, class: 'btn btn-primary'} Step 2
-    %li{"data-slide" => 4, class: 'btn btn-primary'} Step 3
+  %br
+  %ul.nav.nav-pills.navigation
+    %li{"data-slide" => 1}
+      %a{href: "#"} Home
+    %li{"data-slide" => 2}
+      %a{href: "#"} App 
+    %li{"data-slide" => 3}
+      %a{href: "#"} About
+    %li
+      %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+        %span
+          Pratik
+          .caret
+      %ul.dropdown-menu
+        %li
+          %a{href: "#"} Action
+        %li
+          %a{href: "#"} Another action
+        %li
+          %a{href: "#"} Something else here
+        %li.divider
+        %li
+          %a{href: "#"} Separated link
 
 
 - content_for :slide1 do
   #slide1.slide{"data-slide" => "1", "data-stellar-background-ratio" => "0"}
-    .row
-      .col-md-2
-      .col-md-4
-        %h1 Between Friends
-    .row
-      .col-md-2
-      .col-md-4
+    #container
+      %h1
+        It 
+        %span.pink remains
+        %span.black between
+        %span.cyan You
+        %span.black1 and
+        %span.yellow me :-)
         = link_to users_facebook_oauth_path do 
           = image_tag 'facebook-connect.png'
-    %a.button{"data-slide" => "2", title: ""}
 
 - content_for :slide2 do
   #slide2.slide{"data-slide" => "2", "data-stellar-background-ratio" => "0.5"}
+    #instruction
+      .title
+        %h3
+          Answer some question
+      %h3
+        U may get lucky
+        Your friends will never know you're interested unless they are too! 
+        (Completely private & discreet until both friends are down to bang!) 
     .wrapper
-      %img{alt: "", "data-stellar-ratio" => "3", "data-stellar-vertical-offset" => "-55", src: "/assets/slide2/blur-ball.png"}/
-      %img{alt: "", "data-stellar-ratio" => "1", "data-stellar-vertical-offset" => "-12", src: "/assets/slide2/blur-ball-big.png"}/
+      #message3{"data-stellar-ratio" => "3", "data-stellar-vertical-offset" => "-155"}
+        #message Answer some question
+      #message3{"data-stellar-ratio" => "1.9", "data-stellar-vertical-offset" => "-202"}
+        #message
+          U may get lucky
+          Your friends will never know you're interested unless they are too! 
+          (Completely private & discreet until both friends are down to bang!) 
       %img{alt: "", "data-stellar-ratio" => "1.5", "data-stellar-vertical-offset" => "-53", src: "/assets/slide2/focus-ball.png"}/
       %img{alt: "", "data-stellar-ratio" => "2.7", "data-stellar-vertical-offset" => "-25", src: "/assets/slide2/small-ball.png"}/
       %img{alt: "", "data-stellar-ratio" => "3", "data-stellar-vertical-offset" => "-55", src: "/assets/slide2/blur-ball.png"}/
       %img{alt: "", "data-stellar-ratio" => "1", "data-stellar-vertical-offset" => "-102", src: "/assets/slide2/blur-ball-big.png"}/
       %img{alt: "", "data-stellar-ratio" => "1.5", "data-stellar-vertical-offset" => "-53", src: "/assets/slide2/focus-ball.png"}/
       %img{alt: "", "data-stellar-ratio" => "2.7", "data-stellar-vertical-offset" => "-25", src: "/assets/slide2/small-ball.png"}/
-    %span.slideno Slide 2
-    %a.button{"data-slide" => "3", title: ""}
-  / End Slide 2
+  
+
 - content_for :slide3 do
   #slide3.slide{"data-slide" => "3", "data-stellar-background-ratio" => "0.5"}
-    .wrapper
-      %img{alt: "", "data-stellar-ratio" => "1.4", "data-stellar-vertical-offset" => "-102", src: "/assets/slide3/freelance.png"}/
-      %img{alt: "", "data-stellar-ratio" => "1.5", "data-stellar-vertical-offset" => "-53", src: "/assets/slide3/psdtuts.png"}/
-      %img{alt: "", "data-stellar-ratio" => "2.7", "data-stellar-vertical-offset" => "-200", src: "/assets/slide3/rockable.png"}/
-      %img{alt: "", "data-stellar-ratio" => "3", "data-stellar-vertical-offset" => "-200", src: "/assets/slide3/themeforest.png"}/
-      %img{alt: "", "data-stellar-ratio" => "1", "data-stellar-vertical-offset" => "-200", src: "/assets/slide3/tutshub.png"}/
-      %img{alt: "", "data-stellar-ratio" => "1.5", "data-stellar-vertical-offset" => "-200", src: "/assets/slide3/psdtuts.png"}/
-    %span.slideno Slide 3
-    %a.button{"data-slide" => "4", title: ""}
-  / End Slide 3
-- content_for :slide4 do
-  #slide4.slide{"data-slide" => "4", "data-stellar-background-ratio" => "0"}
-    %span.slideno Slide 4
-    %span.parallaxbg Use the parallax effects on background /assets too!
-  / End Slide 4
-
+    #generate_data
+      .title
+        %h3 Check what your friends think of you
 
 
 .row
-  .col-md-10
-  .col-md-2
+  .col-md-7
+  .col-md-5
     = yield :navigation
 /** Image appears on each slide
 /**%img.envatologo{src: "/assets/envatologo.png"}/
 = yield :slide1
 = yield :slide2
+%br
 = yield :slide3
-= yield :slide4
