@@ -43,7 +43,7 @@ class AnswersController < ApplicationController
 
   def load_question_and_friends
     @question = Question.where(order: session[:current_question]).first
-    @friends = current_user.get_friends 
+    @friends = current_user.friend_ids.nil? ? [] : current_user.get_friends
   end
 
   def questions_count(no_of_questions)
