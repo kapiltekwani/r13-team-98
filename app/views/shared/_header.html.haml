@@ -1,5 +1,5 @@
 %br
-- klass = params[:controller] == 'home' ? '' : 'nav-answer-page'
+- klass = params[:controller] == 'home' ? '' : 'nav-answer-page1'
 %div{id: klass}
   %ul.nav.nav-pills.navigation
     - if params[:controller] == 'home'
@@ -10,7 +10,7 @@
       %li{"data-slide" => 3}
         %a{href: "#"} About
     - if user_signed_in?
-      %li.pull-right
+      %li
         %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
           %span
             = image_tag current_user.image_url
