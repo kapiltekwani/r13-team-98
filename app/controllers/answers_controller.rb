@@ -2,8 +2,8 @@ class AnswersController < ApplicationController
   before_filter :authenticate_user!
 
   def new
-    session[:current_question]  ||= questions_count(session[:current_question])
-    
+    session[:current_question] = 1 if session[:current_question].nil?
+    session[:current_question]  ||= questions_count(session[:current_question]) unless session[:current_question].nil? 
     load_answer
   end
 
