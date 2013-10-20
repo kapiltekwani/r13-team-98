@@ -3,17 +3,25 @@
     .row
       .col-md-9
         #logo-title 
-          = image_tag 'app-logo.png'
           Between You and Me
       .col-md-3
-        = render 'shared/header'
+        %ul.nav.nav-pills
+          %li
+            %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+              %span
+                = image_tag current_user.image_url
+                = current_user.name
+                .caret
+            %ul.dropdown-menu
+              %li
+                = link_to 'Sign Out', destroy_user_session_path, method: :delete
   .container
     .row
       .col-lg-6
         #answer
           = render 'form', answer: @answer, question: @question
       .col-lg-6
-        .well
+        #matched-answer.well
           %legend 
             Matched Answer 
             .pull-right
@@ -23,7 +31,7 @@
             %br
             - @matched_users[d].each do |url|
               = image_tag "https://graph.facebook.com/#{url}/picture", size: '40x40'
-          %legend
+            %legend
   .container#pie-container
     - if @pie_chart_label.empty?
       #result.well

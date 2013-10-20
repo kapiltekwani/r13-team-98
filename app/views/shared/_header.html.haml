@@ -1,6 +1,5 @@
 %br
-- klass = params[:controller] == 'home' ? '' : 'nav-answer-page1'
-%div{id: klass}
+%div
   %ul.nav.nav-pills.navigation
     - if params[:controller] == 'home'
       %li{"data-slide" => 1}
