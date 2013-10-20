@@ -60,4 +60,17 @@ class User
   def answers_about_me 
     Answer.where(:answered_for_id => self.id)
   end
+
+  def download_friend_images
+    require 'fileutils'
+    require 'open-uri'
+    
+    FileUtils.mkdir("#{Rails.root}/public/system") unless Dir.exists?("#{Rails.root}/public/system")
+    FileUtils.mkdir("#{Rails.root}/public/system/images") unless Dir.exists?("#{Rails.root}/public/system/images")
+    FileUtils.cd("#{Rails.root}/public/system/images")
+    
+    self.get_friends.each  do |friend|
+      File.write("#{friend.uid}.jpg", open("https://graph.facebook.com/#{friend.uid}/picture").read, {mode: 'wb'})
+    end
+  end
 end
