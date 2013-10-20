@@ -1,15 +1,8 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#message {
-  color: white;
-  font-size: 23px;
-  text-shadow: 1px 3px 5px rgba(0, 1, 2, 0.4);
-  font-weight: 400;
-}
-
-#message3{
-  position: absolute;
+#footer{
+  background-color: #428BCA;
 }
 
 #instruction {
@@ -17,7 +10,12 @@
   color: white;
 }
 
-#generate_data{
+#privacy {
+  color: white;
+}
+
+#who-we-are{
+  color: white;
 }
 
 #slide1 #container {
@@ -58,6 +56,21 @@
     position: absolute;
     margin: 0px 0 0;
     background: white;
+}
+
+#privacy .title {
+    margin: 0px auto 45px auto;
+    padding-top: 130px;
+}
+
+#privacy .title:after {
+    top: 55%;
+    left: 325px;
+}
+
+#privacy .title:before {
+    top: 55%;
+    right: 325px;
 }
 
 .steps{
