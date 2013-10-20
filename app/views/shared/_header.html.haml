@@ -1,20 +1,21 @@
 %br
-- if user_signed_in?
-  %ul.nav.nav-pills.pull-right
-    %li
-      %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-        %span
-          = image_tag current_user.image_url
-          = current_user.name
-          .caret
-      %ul.dropdown-menu
-        %li
-          = link_to 'Sign Out', destroy_user_session_path, method: :delete
-- else
+- klass = params[:controller] == 'home' ? '' : 'nav-answer-page'
+%div{id: klass}
   %ul.nav.nav-pills.navigation
-    %li{"data-slide" => 1}
-      %a{href: "#"} Home
-    %li{"data-slide" => 2}
-      %a{href: "#"} App 
-    %li{"data-slide" => 3}
-      %a{href: "#"} About
+    - if params[:controller] == 'home'
+      %li{"data-slide" => 1}
+        %a{href: "#"} Home
+      %li{"data-slide" => 2}
+        %a{href: "#"} App 
+      %li{"data-slide" => 3}
+        %a{href: "#"} About
+    - if user_signed_in?
+      %li.pull-right
+        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+          %span
+            = image_tag current_user.image_url
+            = current_user.name
+            .caret
+        %ul.dropdown-menu
+          %li
+            = link_to 'Sign Out', destroy_user_session_path, method: :delete

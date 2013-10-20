@@ -36,17 +36,17 @@ html,body{
 	text-align:left;
 	width:53px;
 }
-*/
+
 .navigation li:hover,.active{
 	font-size:25px;
 	cursor:pointer;
 	width:100px!important;
-}
+}*/
 .envatologo{
   position:fixed;
   top:50%;
   right:0%;
-  width:446px;
+  width:522px;
   margin-top:-41px;
   margin-left:-223px;
   z-index:1;
