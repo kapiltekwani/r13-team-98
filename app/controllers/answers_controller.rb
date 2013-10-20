@@ -6,6 +6,7 @@ class AnswersController < ApplicationController
     session[:current_question]  ||= questions_count(session[:current_question]) unless session[:current_question].nil? 
     load_answer
     generate_user_statistics
+    @matched_users = current_user.get_matched_data
   end
 
   def create
@@ -43,7 +44,7 @@ class AnswersController < ApplicationController
 
   def load_question_and_friends
     @question = Question.where(order: session[:current_question]).first
-    @friends = current_user.get_friends 
+    @friends = current_user.friend_ids.nil? ? [] : current_user.get_friends
   end
 
   def questions_count(no_of_questions)

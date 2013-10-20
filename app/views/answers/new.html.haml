@@ -14,14 +14,17 @@
           = render 'form', answer: @answer, question: @question
       .col-lg-6
         .well
-          %legend Matched Answer
-          - Question.limit(5).each do |q|
-            = q.question_text
+          %legend 
+            Matched Answer 
+            .pull-right
+              = link_to "Refresh", new_answer_path
+          - @matched_users.keys.each do |d|
+            = d
             %br
-            - 2.times do 
-              = image_tag 'pratik.jpg', size: '40x40'
-            %legend
-  .container
+            - @matched_users[d].each do |url|
+              = image_tag "https://graph.facebook.com/#{url}/picture", size: '40x40'
+          %legend
+  .container#pie-container
     - if @pie_chart_label.empty?
       #result.well
         %h3.control-label

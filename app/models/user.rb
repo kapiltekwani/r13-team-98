@@ -69,7 +69,6 @@ class User
   end
 
   def download_friend_images
-    
     FileUtils.mkdir("#{Rails.root}/public/system") unless Dir.exists?("#{Rails.root}/public/system")
     FileUtils.mkdir("#{Rails.root}/public/system/images") unless Dir.exists?("#{Rails.root}/public/system/images")
     FileUtils.cd("#{Rails.root}/public/system/images")
@@ -77,5 +76,32 @@ class User
     self.friend_ids.each  do |uid|
       File.write("#{uid}.jpg", open("https://graph.facebook.com/#{uid}/picture").read, {mode: 'wb'})
     end
+  end
+
+  def get_questions_answered_by_me
+    answers = Answer.where(:answered_by_id => self.id)
+    question_ids = answers.collect {|a| a.question_id}
+  end
+
+  def get_matched_data
+    question_ids = self.get_questions_answered_by_me
+    data = {}
+    unless question_ids.empty?
+      question_ids.each do |d|
+        answers = Answer.where(:question_id => d, :answered_for_id => self.id)
+        unless answers.empty?
+          answers.each do |ans| 
+            question = Question.find(d)
+            if data[question.question_text] == nil
+              data[question.question_text] = [ans.answered_by.uid]
+            else
+              data[question.question_text] << ans.answered_by.uid
+            end
+            data[question.question_text] = data[question.question_text].uniq
+          end
+        end
+      end
+    end
+    data
   end
 end
