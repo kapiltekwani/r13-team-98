@@ -11,6 +11,11 @@
   float: right !important;
 }*/
 
+#matched-answer{
+    height: 426px;
+    overflow: auto;
+}
+
 #pie-container{
   margin-top: -85px;
 }
@@ -28,7 +33,6 @@
     color: #F05A29;
     letter-spacing: 1px;
     font-size: 24px;
-    text-transform: uppercase;
     text-align: left;
     margin-bottom: 2px
 }
@@ -37,7 +41,6 @@
     color: #F05A29;
     letter-spacing: 1px;
     font-size: 14px;
-    text-transform: uppercase;
     text-align: left;
     margin-bottom: 2px;
     padding-top:5px;
@@ -50,7 +53,6 @@
   color: #F05A29;
   letter-spacing: 1px;
   font-size: 16px;
-  text-transform: uppercase;
   text-align: left;
   margin-bottom: 2px;
   padding-top:5px;
