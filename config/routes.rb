@@ -1,7 +1,5 @@
 Fmatch::Application.routes.draw do
 
-  match 'generate' => 'home#generate_user_statistics'
-
   match '/users/sign_in' => redirect('/')
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

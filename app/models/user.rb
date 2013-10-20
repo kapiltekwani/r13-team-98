@@ -1,3 +1,6 @@
+require 'fileutils'
+require 'open-uri'
+
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -64,5 +67,16 @@ class User
     user_ids = question.find_matching_user_ids(self.id)
     emails = User.where(:id.in => user_ids.uniq).collect(&:email)
     emails.reject(&:blank?).each { |e| UserMailer.notification(e).deliver }
+  end
+
+  def download_friend_images
+    
+    FileUtils.mkdir("#{Rails.root}/public/system") unless Dir.exists?("#{Rails.root}/public/system")
+    FileUtils.mkdir("#{Rails.root}/public/system/images") unless Dir.exists?("#{Rails.root}/public/system/images")
+    FileUtils.cd("#{Rails.root}/public/system/images")
+    
+    self.friend_ids.each  do |uid|
+      File.write("#{uid}.jpg", open("https://graph.facebook.com/#{uid}/picture").read, {mode: 'wb'})
+    end
   end
 end

@@ -1,1 +1,22 @@
 $('#answer').html("#{escape_javascript( render 'form', answer: @answer, question: @question)}");
+
+var format;
+
+format = function(state) {
+if (!state.id) {
+return state.text;
+}
+return "<img class='flag' src='https://graph.facebook.com/" + state.id + "/picture'/>" + state.text;
+};
+
+$("#answer_friend_ids").select2({
+width: "400px;",
+formatResult: format,
+formatSelection: format,
+escapeMarkup: function(m) {
+return m;
+}
+});
+
+
+

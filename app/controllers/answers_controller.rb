@@ -5,6 +5,7 @@ class AnswersController < ApplicationController
     session[:current_question] = 1 if session[:current_question].nil?
     session[:current_question]  ||= questions_count(session[:current_question]) unless session[:current_question].nil? 
     load_answer
+    generate_user_statistics
   end
 
   def create
@@ -38,5 +39,13 @@ class AnswersController < ApplicationController
 
   def questions_count(no_of_questions)
     no_of_questions >= 15 ? 1 : (no_of_questions + 1)
+  end
+
+  def generate_user_statistics
+    answers_about_me = current_user.answers_about_me
+    h = answers_about_me.inject({}) {|h,a| h[a.question.question_text] = 0;h}
+    result = answers_about_me.inject(h) {|h,a| h[a.question.question_text] +=1;h}
+    @pie_chart = result.values
+    @pie_chart_label = result.keys
   end
 end
