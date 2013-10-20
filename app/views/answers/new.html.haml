@@ -1,16 +1,22 @@
-#answer
-  = render 'form', answer: @answer, question: @question
-
-.clearfix
-%br
-- if @pie_chart_label.empty?
-  #result.well
-    %h3 No friends have answered about still!! 
-- else
-  #result.well
-    %h3 What friends think of you 
-    #pie_chart 
-    :javascript
-      var pie_chart =  #{@pie_chart.to_json}
-      var pie_chart_label = #{@pie_chart_label.to_json}
+.container
+  .row
+    .col-md-7
+    .col-md-5
+      = render 'shared/header'
+  .row
+    #answer
+      = render 'form', answer: @answer, question: @question
+    
+    .clearfix
+    %br
+    - if @pie_chart_label.empty?
+      #result.well
+        %h3 No friends have answered about still!! 
+    - else
+      #result.well
+        %h3 What friends think of you 
+        #pie_chart 
+        :javascript
+          var pie_chart =  #{@pie_chart.to_json}
+          var pie_chart_label = #{@pie_chart_label.to_json}
 
