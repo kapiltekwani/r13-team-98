@@ -3,6 +3,6 @@ class UserMailer < ActionMailer::Base
   
   def notification(email)
     @email = email
-    mail(to: email, subject: "Cheers someone of your friend answerd about you at Beetween Friends.")
+    mail(to: email, subject: "Cheers!!! one of your friends answered about you at 'Between You and me'")
   end
 end

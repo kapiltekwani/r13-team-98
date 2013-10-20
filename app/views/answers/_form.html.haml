@@ -1,16 +1,12 @@
 .well
   = simple_form_for answer,  :html => {:class => 'form answer-form form-inline' }, remote: true do |f|
     .form-inline
-      = f.input :question_id, as: :hidden
       = f.input :answered_by_id, as: :hidden
+      = f.input :question_id, as: :hidden
       .row
-        .col-lg-3
-          = image_tag 'babu-rao.jpg', size: '150x150' 
-        .col-lg-9
-          %h1
-            = question.question_text
-          %br
-            = f.input :friend_ids, :collection => @friends.map{|u| [u.name, u.uid]}, input_html: {multiple: true, width:'800px;'}, :label => 'Friend Name'
-          %br
-          = f.submit "Submit", class: 'btn btn-primary'
-          = link_to "Skip", answers_skip_path, class: 'btn btn-warning'
+        = render "question", question: question, f: f
+        %br
+          = f.input :friend_ids, :collection => @friends.map{|u| [u.name, u.uid]}, input_html: {multiple: true}, :label => "Please enter your friend's name ", wrapper_html: {class: 'col-lg-9'}
+        %br
+          = f.submit "Submit", class: 'btn btn-primary', style: "margin-top:15px;margin-left:100px"
+          = link_to "Skip", answers_skip_path, class: 'btn btn-warning', style: "margin-top:15px"

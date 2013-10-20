@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       redirect_to users_facebook_oauth_path and return
     end
 
-    path = current_user.friend_ids.empty? ? terms_path : new_answer_path
+    path = current_user.friend_ids.nil? ? terms_path : new_answer_path
     redirect_to path and return
   end
 end

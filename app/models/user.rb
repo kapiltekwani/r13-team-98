@@ -1,3 +1,6 @@
+require 'fileutils'
+require 'open-uri'
+
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -43,12 +46,11 @@ class User
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:uid => auth.uid).first
+    user_hash = { name:auth.extra.raw_info.name, provider:auth.provider, uid:auth.uid, email:auth.info.email }
     unless user
-      user = User.create(name:auth.extra.raw_info.name,
-                         provider:auth.provider,
-                         uid:auth.uid,
-                         email:auth.info.email
-                        )
+      user = User.create(user_hash)
+    else
+      user.update_attributes(user_hash)
     end
     user
   end
@@ -61,16 +63,20 @@ class User
     Answer.where(:answered_for_id => self.id)
   end
 
+  def send_notifications(question)
+    user_ids = question.find_matching_user_ids(self.id)
+    emails = User.where(:id.in => user_ids.uniq).collect(&:email)
+    emails.reject(&:blank?).each { |e| UserMailer.notification(e).deliver }
+  end
+
   def download_friend_images
-    require 'fileutils'
-    require 'open-uri'
     
     FileUtils.mkdir("#{Rails.root}/public/system") unless Dir.exists?("#{Rails.root}/public/system")
     FileUtils.mkdir("#{Rails.root}/public/system/images") unless Dir.exists?("#{Rails.root}/public/system/images")
     FileUtils.cd("#{Rails.root}/public/system/images")
     
-    self.get_friends.each  do |friend|
-      File.write("#{friend.uid}.jpg", open("https://graph.facebook.com/#{friend.uid}/picture").read, {mode: 'wb'})
+    self.friend_ids.each  do |uid|
+      File.write("#{uid}.jpg", open("https://graph.facebook.com/#{uid}/picture").read, {mode: 'wb'})
     end
   end
 end
